@@ -1,0 +1,31 @@
+trigger: none
+pr: none
+name: 'Deploy app'
+resources:
+  containers:
+    - container: acrtaskcontainer  
+      type: ACR
+      azureSubscription: 'anshenoDev'
+      resourceGroup: anumitaReg
+      registry: anshenormdev
+      repository: app
+      trigger: 'true'
+
+variables:
+  system.debug: 'true'
+
+stages:
+- stage: Deploy
+  displayName: Deploy stage
+  jobs:
+  - job: Deploy
+    displayName: Deploy
+    pool:
+     vmImage: 'ubuntu-latest'
+    steps:
+    - task: CmdLine@2
+      inputs:
+        script: |
+          echo Write your commands here
+          
+          echo Hello world
