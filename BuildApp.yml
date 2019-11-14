@@ -25,7 +25,10 @@ stages:
       inputs:
         azureSubscription: 'anshenoDev'
         azureContainerRegistry: 'anshenormdev'
-        repository: 'app'
+        containerRepository: 'app'
+        gitHubConnection: Anumita
+        repositoryName: Anumita/nodeapp
+        branch: master
         dockerfileOrTaskFile: 'Dockerfile'
         tags: |
           $(Build.BuildId)
