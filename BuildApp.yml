@@ -8,6 +8,16 @@ trigger:
 
 pr: none
 
+resources:
+  containers:
+    - container: acrtaskcontainer  
+      type: ACR
+      azureSubscription: 'anshenoDev'
+      resourceGroup: anumitaReg
+      registry: anshenormdev
+      repository: scenario1nodebaseimage
+      trigger: 'true'
+
 variables:
   system.debug: 'true'
 
@@ -21,13 +31,13 @@ stages:
      vmImage: 'ubuntu-latest'
     steps:
     - task: ACRTaskV0@0
-      displayName: 'appacrtask'
+      displayName: 'scenario1appacrtask'
       inputs:
         azureSubscription: 'anshenoDev'
         azureContainerRegistry: 'anshenormdev'
-        containerRepository: 'app'
+        containerRepository: 'scenario1app'
         gitHubConnection: 'github.com_Anumita'
-        repositoryName: Anumita/nodeapp
+        repositoryName: Anumita/scenario1nodeapp
         branch: master
         dockerfileOrTaskFile: 'Dockerfile'
         tags: |
