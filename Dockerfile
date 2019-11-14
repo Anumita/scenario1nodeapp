@@ -1,1 +1,1 @@
-FROM anshenormdev.azurecr.io/nodebaseimage:n1
+FROM anshenormdev.azurecr.io/scenario1nodebaseimage:n1
